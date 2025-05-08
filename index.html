@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DataNautX</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #070a6c;
+      --accent: #55c3e8;
+      --bg: #f1f0fb;
+      --text: #1e1e2f;
+      --contact-form-bg: #121580;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      scroll-behavior: smooth;
+    }
+
+    .top-banner {
+      background-color: var(--primary);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .top-banner .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .top-banner .logo-container img {
+      height: 32px;
+      margin-right: 0.5rem;
+    }
+
+    .top-banner .logo-container span {
+      color: white;
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: 1px;
+    }
+
+    .top-banner nav a {
+      color: white;
+      margin-left: 1.5rem;
+      text-decoration: none;
+      font-weight: 500;
+      transition: opacity 0.3s ease;
+    }
+
+    .top-banner nav a:hover {
+      opacity: 0.7;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2rem;
+      background: linear-gradient(to right, #f8f9ff, #f0f8ff);
+      flex-wrap: wrap;
+    }
+
+    .hero-left {
+      flex: 1;
+      padding-right: 2rem;
+      min-width: 300px;
+    }
+
+    .hero-left h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 0;
+    }
+
+    .hero-left p {
+      font-size: 1.2rem;
+      margin: 1.5rem 0;
+      color: #555;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-buttons a {
+      padding: 0.8rem 1.6rem;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+
+    .primary-btn {
+      background-color: var(--primary);
+      color: #fff;
+      border: none;
+    }
+
+    .secondary-btn {
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      background-color: transparent;
+    }
+
+    .hero-right {
+      flex: 1;
+      text-align: center;
+      min-width: 280px;
+    }
+
+    .hero-right img {
+      max-width: 80%;
+    }
+
+    .section {
+      padding: 2rem 2rem;
+      text-align: center;
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 2rem;
+    }
+
+    .section p {
+      font-size: 1rem;
+      color: #555;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .card {
+      background-color: #fff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      width: 280px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      text-align: left;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      color: var(--primary);
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    .stats {
+      background: linear-gradient(135deg, var(--primary), #4e6dfd);
+      color: white;
+      padding: 2rem 2rem 4rem;
+      text-align: center;
+    }
+
+    .stat-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .stat {
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 2rem;
+      width: 220px;
+      text-align: center;
+    }
+
+    .stat h3 {
+      font-size: 2rem;
+      color: #fff;
+      margin: 0;
+    }
+
+    .stat p {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      color: #eee;
+    }
+
+    #about h2 {
+      margin-bottom: 3rem;
+    }
+
+    #contact h3 {
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-wrapper {
+      background-color: var(--primary);
+      color: white;
+      padding: 4rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+    }
+
+    .contact-left {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .contact-right {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .contact-form {
+      background-color: var(--contact-form-bg);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .contact-form h3 {
+      color: white;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .contact-form button {
+      background-color: white;
+      color: var(--primary);
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .footer-logo-wrapper {
+      background-color: var(--primary);
+      color: white;
+      padding: 4rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      gap: 2rem;
+      justify-content: space-between;
+    }
+
+    .footer-columns {
+      display: flex;
+      gap: 5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-column h4 {
+      margin-bottom: 0.8rem;
+      font-weight: 700;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-column ul li {
+      margin: 0.2rem 0;
+    }
+
+    .footer-column ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .footer-column ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      width: 100%;
+      margin-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-bottom svg {
+      fill: white;
+    }
+
+    .footer-logo {
+      background-color: var(--primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-logo img {
+      height: 32px;
+      margin-right: 0.5rem;
+    }
+
+    .footer-logo span {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-right: 1rem;
+    }
+
+    .footer-logo small {
+      width: 100%;
+      margin-top: 0rem;
+      font-size: 0.95rem;
+      opacity: 0.8;
+    }
+
+    footer {
+      background-color: var(--primary);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-left, .hero-right {
+        padding: 1rem 0;
+      }
+
+      .cards, .stat-cards {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .contact-wrapper {
+        flex-direction: column;
+      }
+
+      footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+      }
+
+      .footer-logo {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .footer-logo span {
+        margin: 0.5rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-banner">
+    <div class="logo-container">
+      <img src="logo-light.png" alt="DataNautX Logo" />
+      <span>DataNautX</span>
+    </div>
+    <nav>
+      <a href="#whatwedo">Services</a>
+      <a href="#stats">Impact</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+
+  <header>
+    <div class="hero-left">
+      <h1 style="color: #55c3e8;">Navigating Data.</h1>
+      <h1>Accelerating Decisions.</h1>
+      <p>Unlock the full potential of your data with our expert analytics consulting and data strategy services.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="primary-btn">Start Your Data Journey</a>
+        <a href="#whatwedo" class="secondary-btn">Explore Solutions</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="logo.png" alt="DataNautX Logo" />
+    </div>
+  </header>
+
+  <section class="section" id="whatwedo">
+    <h2>What We Do</h2>
+    <p style="margin-top: -10px;">We combine deep technical expertise with a business-first mindset to deliver smarter, faster and data-backed decisions.</p>
+    <div class="cards">
+      <div class="card"><h3>Strategy Design</h3><p>Define KPIs, data architecture and governance models aligned with business goals.</p></div>
+      <div class="card"><h3>Custom Dashboard Development</h3><p>Build real-time, role-based dashboards for operational and executive teams.</p></div>
+      <div class="card"><h3>Embedded BI Solutions</h3><p>Integrate white-label analytics into client platforms.</p></div>
+      <div class="card"><h3>Data Engineering & Automation</h3><p>Develop ETL pipelines, streamline data prep and automate reporting.</p></div>
+      <div class="card"><h3>Predictive Insights</h3><p>Apply machine learning and modeling to forecast trends and identify opportunities.</p></div>
+      <div class="card"><h3>Technical Workshops & Training</h3><p>Upskill your team on analytics tools, practices and data literacy.</p></div>
+    </div>
+  </section>
+
+  <section class="stats" id="stats">
+    <h2>Key Accomplishments</h2>
+    <p>We deliver tangible results through our data-driven approach and technical expertise.</p>
+    <div class="stat-cards">
+      <div class="stat"><h3>45%</h3><p>Reduced processing time for a fintech client through streamlined ETL.</p></div>
+      <div class="stat"><h3>30%</h3><p>Improved decision-making speed at a multinational bank.</p></div>
+      <div class="stat"><h3>50%</h3><p>Slashed report generation time for a Fortune 500 automotive brand.</p></div>
+      <div class="stat"><h3>150+</h3><p>Client staff trained via custom analytics and data workshops.</p></div>
+    </div>
+  </section>
+
+  <section class="section" id="about" style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem;">
+    <div style="min-width: 280px; text-align: left;">
+      <h2>About Us</h2>
+      <p style="margin-top: -20px;">At DataNautX, we specialize in analytics consulting and data strategy, helping businesses unlock the full potential of their data. With over a decade of experience in enterprise tech, we partner with fintechs, banks, startups and global enterprises to build scalable, insight-driven systems.</p>
+      <p>We lead high-impact analytics initiatives for global clients in fintech, banking and enterprise sectors. We specialize in transforming complex data into actionable strategies, helping businesses unlock predictive insights and drive growth.</p>
+    </div>
+    <div style="flex: 1; min-width: 280px; text-align: center;">
+      <img src="about-image.png" alt="About DataNautX" style="max-width: 70%; border-radius: 8px;" />
+    </div>
+  </section>
+
+  <section id="contact" class="contact-wrapper">
+    <div class="contact-left">
+      <h2>Ready to Transform Your Data Journey?</h2>
+      <p>Get in touch to discuss how DataNautX can help your organization make smarter, faster, and data-backed decisions.</p>
+      <h3>Services Provided</h3>
+      <ul>
+        <li>Strategy Design</li>
+        <li>Custom Dashboard Development</li>
+        <li>Embedded BI Solutions</li>
+        <li>Data Engineering & Automation</li>
+        <li>Predictive Insights</li>
+        <li>Technical Workshops & Training</li>
+      </ul>
+    </div>
+    <div class="contact-right">
+      <form class="contact-form" action="mailto:nishchalaro@gmail.com" method="POST" enctype="text/plain">
+        <h3 style="margin-top: 0;">Contact Us</h3>
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <input type="text" name="company" placeholder="Your Company" />
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="footer-logo-wrapper">
+    <div class="footer-columns">
+    
+      <div class="footer-column">
+        <div class="footer-logo">
+          <img src="logo-light.png" alt="DataNautX Logo" />
+          <span>DataNautX</span>
+          <small>Navigating Data. Accelerating Decisions.</small>
+        </div>
+      </div>
+      
+      <div class="footer-column">
+        <b>Quick Links</b>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#whatwedo">Services</a></li>
+          <li><a href="#stats">Impact</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <b>Services</b>
+        <ul>
+          <li><a href="#whatwedo">Strategy Design</a></li>
+          <li><a href="#whatwedo">Custom Dashboards</a></li>
+          <li><a href="#whatwedo">Embedded BI</a></li>
+          <li><a href="#whatwedo">Data Engineering</a></li>
+          <li><a href="#whatwedo">Predictive Insights</a></li>
+          <li><a href="#whatwedo">Workshops & Training</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <b>Legal</b>
+        <ul>
+          <li><a href="terms.html">Terms of Services</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+    <footer>
+    <div>&copy; 2025 DataNautX. All rights reserved.</div>
+    <div>
+      <a href="https://www.linkedin.com/company/datanautx" target="_blank" class="hover:text-datanaut-teal transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             class="h-5 w-5">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+          <rect x="2" y="9" width="4" height="12"></rect>
+          <circle cx="4" cy="4" r="2"></circle>
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+</body>
+</html>
