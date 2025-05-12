@@ -3,11 +3,11 @@ import os
 import time
 from datetime import datetime
 
-BEARER_TOKEN = os.getenv("BEARER_TOKEN")
-API_KEY = os.getenv("API_KEY")
-API_SECRET_KEY = os.getenv("API_SECRET_KEY")
-ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
-ACCESS_TOKEN_SECRET = os.getenv("ACCESS_TOKEN_SECRET")
+BEARER_TOKEN = ${{ secrets.BEARER_TOKEN }}
+API_KEY = ${{ secrets.API_KEY }}
+API_SECRET_KEY = ${{ secrets.API_SECRET_KEY }}
+ACCESS_TOKEN = ${{ secrets.ACCESS_TOKEN }}
+ACCESS_TOKEN_SECRET = ${{ secrets.ACCESS_TOKEN_SECRET }}
 
 TWEET_FILE = 'tweets.txt'
 
