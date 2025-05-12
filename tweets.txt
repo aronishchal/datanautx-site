@@ -1,0 +1,3 @@
+DataNautX helps teams make smarter decisions with clean, usable data.
+Tired of messy spreadsheets? DataNautX turns chaos into clarity.
+Built for modern teams, DataNautX makes data work without the busywork.
