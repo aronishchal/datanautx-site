@@ -23,7 +23,7 @@ def post_tweet(tweet):
     try:
         client.create_tweet(text=tweet)
         print(f"Tweeted: {tweet}")
-    except tweepy.errors.TweepyException as e:
+    except Exception as e:
         print(f"Error posting tweet: {e}")
 
 def get_today_tweet():
@@ -34,15 +34,11 @@ def get_today_tweet():
         day_of_year = datetime.now().timetuple().tm_yday
         tweet_index = (day_of_year - 1) % len(tweets)
         return tweets[tweet_index].strip()
-    except FileNotFoundError:
-        print(f"Error: The file {TWEET_FILE} does not exist.")
-        return Non
-
-def main():
-    today_tweet = get_today_tweet()
-    if today_tweet:
-        post_tweet(today_tweet)
+    except Exception as e:
+        print(f"Error reading tweet file: {e}")
+        return None
 
 if __name__ == '__main__':
-    while True:
-        main()
+    tweet = get_today_tweet()
+    if tweet:
+        post_tweet(tweet)

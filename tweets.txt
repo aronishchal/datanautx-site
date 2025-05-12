@@ -1,3 +1,42 @@
-DataNautX helps teams make smarter decisions with clean, usable data.
-Tired of messy spreadsheets? DataNautX turns chaos into clarity.
-Built for modern teams, DataNautX makes data work without the busywork.
+DataNautX helps teams make smarter decisions with clean, usable data - https://datanautx.com 
+Tired of messy spreadsheets? DataNautX turns chaos into clarity. https://datanautx.com 
+Data without context is just noise.
+Data cleaning is 80% of analysis and 0% of the resume.
+If your data's too perfect, you're probably missing something.
+DataNautX makes analytics cleaner, faster, and less painful: https://datanautx.com
+DataNautX is where your raw data grows up: https://datanautx.com
+Data clarity starts here: https://datanautx.com
+Dashboards don't solve problems, people do.
+Before you build your next dashboard, try DataNautX: https://datanautx.com
+DataNautX helps teams stop wasting time on messy data: https://datanautx.com
+Python is a cheat code for data people.
+“Average” can hide outliers that matter. Don’t get lazy.
+Mean and median are not friends in skewed data.
+Ask better questions, get better insights.
+Clean data beats big data every time.
+The best insights come from unexpected places.
+If data prep is slowing you down, try DataNautX: https://datanautx.com
+Anomalies are just the system whispering to you.
+Data is not truth. It's a lens.
+Data literacy is a team sport.
+One click to clean. One place to collaborate. datanautx.com
+ETL is where the real pain lives.
+A good analyst knows when not to use data.
+SQL is the new Excel.
+You can’t model your way out of bad data.
+Never trust a graph without its axis labels.
+Pivot tables are the gateway drug to real analysis.
+No more chaos spreadsheets. Just clean insights. DataNautX: https://datanautx.com
+If you're still using VLOOKUP, there's a better life waiting.
+Granularity matters. Weekly vs daily can change everything.
+Every dashboard lies a little—know what question you’re really answering.
+Your model is only as good as your assumptions.
+The best charts are boring—clarity over flash.
+Overfitting feels like winning until it isn’t.
+Data engineering is the plumbing. Glamorous, right?
+Bad data beats no data. But not by much.
+Great analysts ask 'why' five times.
+Correlation isn’t causation, but it's often a good clue.
+Join the teams building smarter with DataNautX: https://datanautx.com
+Build trust in your metrics with DataNautX: https://datanautx.com
+Your KPIs are only as honest as the people who set them.
