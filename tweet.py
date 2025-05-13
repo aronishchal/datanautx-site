@@ -1,7 +1,9 @@
 import tweepy
 import os
 import time
+import smtplib
 from datetime import datetime
+from email.message import EmailMessage
 
 BEARER_TOKEN = os.getenv("BEARER_TOKEN")
 API_KEY = os.getenv("API_KEY")
@@ -19,12 +21,33 @@ client = tweepy.Client(
     access_token_secret=ACCESS_TOKEN_SECRET
 )
 
+def send_email(subject, body):
+    EMAIL_ADDRESS = os.getenv("EMAIL_USER")
+    EMAIL_PASSWORD = os.getenv("EMAIL_PASS")
+    RECEIVER_EMAIL = "hello@datanautx.com"
+
+    msg = EmailMessage()
+    msg['Subject'] = subject
+    msg['From'] = EMAIL_ADDRESS
+    msg['To'] = RECEIVER_EMAIL
+    msg.set_content(body)
+
+    try:
+        with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
+            smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
+            smtp.send_message(msg)
+        print("Notification email sent.")
+    except Exception as e:
+        print(f"Failed to send email: {e}")
+
 def post_tweet(tweet):
     try:
         client.create_tweet(text=tweet)
         print(f"Tweeted: {tweet}")
+        send_email("✅ Tweet Success", f"The tweet was posted successfully:\n\n{tweet}")
     except Exception as e:
         print(f"Error posting tweet: {e}")
+        send_email("❌ Tweet Failed", f"Tweet failed:\n\n{tweet}\n\nError: {e}")
 
 def get_today_tweet():
     try:

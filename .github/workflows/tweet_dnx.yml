@@ -27,4 +27,6 @@ jobs:
           DNX_API_SECRET_KEY: ${{ secrets.DNX_API_SECRET_KEY }}
           DNX_ACCESS_TOKEN: ${{ secrets.DNX_ACCESS_TOKEN }}
           DNX_ACCESS_TOKEN_SECRET: ${{ secrets.DNX_ACCESS_TOKEN_SECRET }}
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
         run: python tweet_dnx.py
