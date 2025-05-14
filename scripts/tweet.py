@@ -56,12 +56,9 @@ def send_email(subject, body):
     except Exception as e:
         print(f"Failed to send email: {e}")
 
-def post_tweet(tweet, isDNX):
+def post_tweet(tweepyClient, tweet):
     try:
-        if isDNX:
-            dnx_client.create_tweet(text=tweet)
-        else:
-            client.create_tweet(text=tweet)
+        tweepyClient.create_tweet(text=tweet)
         print(f"Tweeted: {tweet}")
         send_email("✅ Tweet Success", f"The tweet was posted successfully:\n\n{tweet}")
     except Exception as e:
@@ -81,10 +78,10 @@ def get_today_tweet(filename):
         return None
 
 if __name__ == '__main__':
-    dnx_tweet = get_today_tweet(os.path.join(SCRIPT_DIR, DNX_TWEET_FILE))
-    if dnx_tweet:
-        post_tweet(dnx_tweet, true)
-
     tweet = get_today_tweet(os.path.join(SCRIPT_DIR, TWEET_FILE))
     if tweet:
-        post_tweet(tweet, false)
+        post_tweet(client, tweet)
+
+    dnx_tweet = get_today_tweet(os.path.join(SCRIPT_DIR, DNX_TWEET_FILE))
+    if dnx_tweet:
+        post_tweet(dnx_client, dnx_tweet)
