@@ -11,7 +11,14 @@ API_SECRET_KEY = os.getenv("API_SECRET_KEY")
 ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
 ACCESS_TOKEN_SECRET = os.getenv("ACCESS_TOKEN_SECRET")
 
+DNX_BEARER_TOKEN = os.getenv("DNX_BEARER_TOKEN")
+DNX_API_KEY = os.getenv("DNX_API_KEY")
+DNX_API_SECRET_KEY = os.getenv("DNX_API_SECRET_KEY")
+DNX_ACCESS_TOKEN = os.getenv("DNX_ACCESS_TOKEN")
+DNX_ACCESS_TOKEN_SECRET = os.getenv("DNX_ACCESS_TOKEN_SECRET")
+
 TWEET_FILE = 'tweets.txt'
+DNX_TWEET_FILE = 'tweets_dnx.txt'
 
 client = tweepy.Client(
     bearer_token=BEARER_TOKEN,
@@ -19,6 +26,14 @@ client = tweepy.Client(
     consumer_secret=API_SECRET_KEY,
     access_token=ACCESS_TOKEN,
     access_token_secret=ACCESS_TOKEN_SECRET
+)
+
+dnx_client = tweepy.Client(
+    bearer_token=DNX_BEARER_TOKEN,
+    consumer_key=DNX_API_KEY,
+    consumer_secret=DNX_API_SECRET_KEY,
+    access_token=DNX_ACCESS_TOKEN,
+    access_token_secret=DNX_ACCESS_TOKEN_SECRET
 )
 
 def send_email(subject, body):
@@ -40,18 +55,21 @@ def send_email(subject, body):
     except Exception as e:
         print(f"Failed to send email: {e}")
 
-def post_tweet(tweet):
+def post_tweet(tweet, isDNX):
     try:
-        client.create_tweet(text=tweet)
+        if isDNX:
+            dnx_client.create_tweet(text=tweet)
+        else:
+            client.create_tweet(text=tweet)
         print(f"Tweeted: {tweet}")
         send_email("✅ Tweet Success", f"The tweet was posted successfully:\n\n{tweet}")
     except Exception as e:
         print(f"Error posting tweet: {e}")
         send_email("❌ Tweet Failed", f"Tweet failed:\n\n{tweet}\n\nError: {e}")
 
-def get_today_tweet():
+def get_today_tweet(filename):
     try:
-        with open(TWEET_FILE, 'r') as file:
+        with open(filename, 'r') as file:
             tweets = file.readlines()
         
         day_of_year = datetime.now().timetuple().tm_yday
@@ -62,6 +80,10 @@ def get_today_tweet():
         return None
 
 if __name__ == '__main__':
-    tweet = get_today_tweet()
+    dnx_tweet = get_today_tweet(DNX_TWEET_FILE)
+    if dnx_tweet:
+        post_tweet(dnx_tweet, true)
+
+    tweet = get_today_tweet(TWEET_FILE)
     if tweet:
-        post_tweet(tweet)
+        post_tweet(tweet, false)
