@@ -17,6 +17,7 @@ DNX_API_SECRET_KEY = os.getenv("DNX_API_SECRET_KEY")
 DNX_ACCESS_TOKEN = os.getenv("DNX_ACCESS_TOKEN")
 DNX_ACCESS_TOKEN_SECRET = os.getenv("DNX_ACCESS_TOKEN_SECRET")
 
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 TWEET_FILE = 'tweets.txt'
 DNX_TWEET_FILE = 'tweets_dnx.txt'
 
@@ -80,10 +81,10 @@ def get_today_tweet(filename):
         return None
 
 if __name__ == '__main__':
-    dnx_tweet = get_today_tweet(DNX_TWEET_FILE)
+    dnx_tweet = get_today_tweet(os.path.join(SCRIPT_DIR, DNX_TWEET_FILE))
     if dnx_tweet:
         post_tweet(dnx_tweet, true)
 
-    tweet = get_today_tweet(TWEET_FILE)
+    tweet = get_today_tweet(os.path.join(SCRIPT_DIR, TWEET_FILE))
     if tweet:
         post_tweet(tweet, false)
