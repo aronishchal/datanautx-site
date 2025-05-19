@@ -21,6 +21,10 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 TWEET_FILE = 'tweets.txt'
 DNX_TWEET_FILE = 'tweets_dnx.txt'
 
+EMAIL_ADDRESS = os.getenv("EMAIL_USER")
+EMAIL_PASSWORD = os.getenv("EMAIL_PASS")
+RECEIVER_EMAIL = "hello@datanautx.com"
+
 client = tweepy.Client(
     bearer_token=BEARER_TOKEN,
     consumer_key=API_KEY,
@@ -38,10 +42,6 @@ dnx_client = tweepy.Client(
 )
 
 def send_email(subject, body):
-    EMAIL_ADDRESS = os.getenv("EMAIL_USER")
-    EMAIL_PASSWORD = os.getenv("EMAIL_PASS")
-    RECEIVER_EMAIL = "hello@datanautx.com"
-
     msg = EmailMessage()
     msg['Subject'] = subject
     msg['From'] = EMAIL_ADDRESS
@@ -60,10 +60,9 @@ def post_tweet(tweepyClient, tweet):
     try:
         tweepyClient.create_tweet(text=tweet)
         print(f"Tweeted: {tweet}")
-        send_email("✅ Tweet Success", f"The tweet was posted successfully:\n\n{tweet}")
     except Exception as e:
         print(f"Error posting tweet: {e}")
-        send_email("❌ Tweet Failed", f"Tweet failed:\n\n{tweet}\n\nError: {e}")
+        send_email("Tweet Failed", f"Tweet failed:\n\n{tweet}\n\nError: {e}")
 
 def get_today_tweet(filename):
     try:
