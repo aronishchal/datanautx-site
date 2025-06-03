@@ -21,94 +21,19 @@
   <meta property="og:description" content="Insights on analytics, automation, and data strategy from the experts at DataNautX." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.datanautx.com/blog.html" />
+  <meta property="og:site_name" content="DataNautX" />
   <meta property="og:image" content="https://www.datanautx.com/images/logo.png" />
 
   <!-- Favicon -->
   <link rel="icon" href="../images/favicon.png" type="image/x-icon" />
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #f9f9ff;
-      color: #1e1e2f;
-    }
-    header {
-      background-color: #070a6c;
-      color: white;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    header a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      margin-left: 1.5rem;
-    }
-    .logo-container {
-      display: flex;
-      align-items: center;
-    }
-    .logo-container img {
-      height: 32px;
-      margin-right: 0.5rem;
-    }
-    .logo-container span {
-      color: white;
-      font-weight: 700;
-      font-size: 1.25rem;
-      letter-spacing: 1px;
-    }
-    .container {
-      max-width: 800px;
-      margin: 3rem auto;
-      padding: 0 1rem;
-    }
-    h1 {
-      font-size: 2.5rem;
-      color: #070a6c;
-      margin-bottom: 2rem;
-    }
-    h2 {
-      font-size: 1.4rem;
-      color: #070a6c;
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-    }
-    p {
-      line-height: 1.6;
-      color: #333;
-    }
-    .meta {
-      font-size: 0.9rem;
-      color: #777;
-      margin-bottom: 1.5rem;
-    }
-    .back-link {
-      display: inline-block;
-      margin-top: 1rem;
-      color: #070a6c;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .blog-post {
-      margin-top: 3rem;
-      border-top: 1px solid #ddd;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-      color: #555;
-    }
-  </style>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <header>
+  
+  <div class="top-banner">
     <div class="logo-container">
       <img src="../images/logo-light.png" alt="DataNautX Logo" />
       <span>DataNautX</span>
@@ -116,10 +41,17 @@
     <nav>
       <a href="/">Home</a>
     </nav>
-  </header>
+  </div>
 
   <main class="container">
     <h1>DataNautX Blog</h1>
+
+    <div class="blog-post">
+      <h2><a href="culture.html">Why Data-Driven Culture Beats More Tools</a></h2>
+      <p class="meta">By DataNautX | Jun 3, 2025</p>
+      <p>Every year, companies spend millions on new analytics tools. Dashboards get launched. Licenses get purchased. But six months later, nothing’s changed...</p>
+      <a href="culture.html" class="back-link">Read More</a>
+    </div>
 
     <div class="blog-post">
       <h2><a href="cost.html">The Real Cost of Not Having a Data Strategy</a></h2>
